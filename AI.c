@@ -1,5 +1,5 @@
 
-#include "ai.h"
+#include "AI.h"
 
 int minMax(int board[SIZE][SIZE], int depth, int role, int alpha, int beta) {
 	int i, j;
