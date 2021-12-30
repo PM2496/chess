@@ -1,4 +1,5 @@
 #pragma once
+#include "role.h"
 #include"board.h"
 
 void gotoxy(int x, int y) {
@@ -36,19 +37,36 @@ void setBoard(int board[SIZE][SIZE]) {
 	for (i = 0; i < 20; i++)
 		for (j = 0; j < 20; j++)
 			board[i][j] = 0;
+	
+	currentSteps = creatpPoints(SIZE*SIZE);
+	currentSteps->length = 0;
 }
 
 void play(int x, int y, int role) {
-	if (role == 1 && Board[x][y] == 0)
+	if (role == AI && Board[x][y] == 0)
 	{
 		gotoxy((y + 1) * 4, (x + 1) * 2); puts("¡ñ");
-		Board[x][y] = 1;
+		Board[x][y] = AI;
+		
 	}
-	else if (role == 2 && Board[x][y] == 0)
+	else if (role == HUM && Board[x][y] == 0)
 	{
 		gotoxy((y + 1) * 4, (x + 1) * 2); puts("¡ð");
-		Board[x][y] = 2;
+		Board[x][y] = HUM;
 	}
+	if (Board[x][y] != 0) {
+		Points points = currentSteps->points;
+		points[currentSteps->length].x = x;
+		points[currentSteps->length].y = y;
+		points[currentSteps->length].role = role;
+		currentSteps->length++;
+	}
+	
+}
+
+void remo(int x, int y) {
+	Board[x][y] = EMPTY;
+	currentSteps->length--;
 }
 
 void location(int x, int y) {

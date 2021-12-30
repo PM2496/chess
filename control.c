@@ -20,7 +20,7 @@ int* compu(int depth) {
 		}
 	}
 	//printf("¿ªÊ¼ËÑË÷");
-	minMax(Board, depth, AI, MIN, MAX);
+	minMax(Board, depth, AI, MIN, MAX, 1);
 	p[0] = X;
 	p[1] = Y;
 
