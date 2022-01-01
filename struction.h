@@ -23,6 +23,7 @@ typedef struct ppoints {
 } pPoint, * pPoints;
 pPoints creatpPoints(int n);
 void pushPoint(pPoints points, Point  point);
+void insertPoint(pPoints points, Point point);
 pPoints joinPoints(pPoints to, pPoints from);
 void remoPoint(pPoints points);
 void sortPoint(pPoints points);

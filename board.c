@@ -11,31 +11,31 @@ void gotoxy(int x, int y) {
 void setBoard(int board[SIZE][SIZE]) {
 	int i, j;
 	gotoxy(0, 0); puts("©³ ©¥");
-	gotoxy(0, 42); puts("©» ©¥");
-	gotoxy(84, 0); puts("©·");
-	gotoxy(84, 42); puts("©¿");
-	for (i = 1; i < 21; i++)
-		for (j = 1; j < 21; j++)
+	gotoxy(0, 34); puts("©» ©¥");
+	gotoxy(68, 0); puts("©·");
+	gotoxy(68, 34); puts("©¿");
+	for (i = 1; i < 17; i++)
+		for (j = 1; j < 17; j++)
 		{
 			gotoxy(j * 4, 2 * i - 1); puts("©§");
 			gotoxy(j * 4, i * 2); puts("©ï ©¥");
 		}
-	for (i = 1; i < 22; i++)
+	for (i = 1; i < 18; i++)
 	{
 		gotoxy(0, i * 2 - 1); puts("©§");
-		gotoxy(84, i * 2 - 1); puts("©§");
+		gotoxy(68, i * 2 - 1); puts("©§");
 	}
-	for (i = 1; i < 21; i++)
+	for (i = 1; i < 17; i++)
 	{
 		gotoxy(i * 4, 0); puts("©× ©¥");
-		gotoxy(i * 4, 42); puts("©ß ©¥");
-		gotoxy(i * 4, 41); puts("©§");
+		gotoxy(i * 4, 34); puts("©ß ©¥");
+		gotoxy(i * 4, 33); puts("©§");
 		gotoxy(2, i * 2); puts("©¥");
 		gotoxy(0, i * 2); puts("©Ç");
-		gotoxy(84, i * 2); puts("©Ï");
+		gotoxy(68, i * 2); puts("©Ï");
 	}
-	for (i = 0; i < 20; i++)
-		for (j = 0; j < 20; j++)
+	for (i = 0; i < 16; i++)
+		for (j = 0; j < 16; j++)
 			board[i][j] = 0;
 	
 	currentSteps = creatpPoints(SIZE*SIZE);

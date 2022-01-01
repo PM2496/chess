@@ -9,9 +9,10 @@ int* compu(int depth) {
 	int* p = (int*)malloc(2 * sizeof(int));
 	static int n = 0;
 	if (n == 0) {
-		if (Board[9][9] == EMPTY) {
-			p[0] = 9;
-			p[1] = 9;
+		//如果电脑先下，第一个子落子棋盘中央
+		if (Board[7][7] == EMPTY) {
+			p[0] = 7;
+			p[1] = 7;
 			return p;
 		}
 		else
@@ -19,7 +20,7 @@ int* compu(int depth) {
 			n++;
 		}
 	}
-	//printf("开始搜索");
+
 	minMax(Board, depth, AI, MIN, MAX, 1);
 	p[0] = X;
 	p[1] = Y;
@@ -28,7 +29,7 @@ int* compu(int depth) {
 }
 int* human()
 {
-	static int X = 9, Y = 9;
+	static int X = 7, Y = 7;
 	char h;
 	int* p = (int*)malloc(2 * sizeof(int));
 	location(X, Y);
@@ -79,7 +80,7 @@ void control(int* p, int role) {
 	y = p[1];
 	if (gameOver(p[0], p[1], role))
 	{
-		gotoxy(86, 0);
+		gotoxy(0,38);
 		puts("\n游戏结束\n");
 		exit(0);
 	}

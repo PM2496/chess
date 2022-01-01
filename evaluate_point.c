@@ -257,13 +257,6 @@ int score_point(int board[SIZE][SIZE], int x, int y, int role) {
 	count += secondCount;
 	result += cal_score(count, block, empty);
 
-	//	if (role == AI) {
-	//		comScore[x][y] = result;
-	//	}
-	//	else
-	//	{
-	//		humScore[x][y] = result;
-	//	}
 	return result;
 }
 
@@ -288,6 +281,7 @@ int cal_score(int count, int block, int empty) {
 		}
 	}
 	else if (empty == 1 || empty == count - 1) {
+		//第一个是空位
 		if (count >= 6) return FIVE;
 		if (block == 0) {
 			switch (count) {
@@ -338,6 +332,7 @@ int cal_score(int count, int block, int empty) {
 		}
 	}
 	else if (empty == 3 || empty == count - 3) {
+		//第三个是空位
 		if (count >= 8) {
 			return FIVE;
 		}
@@ -369,6 +364,7 @@ int cal_score(int count, int block, int empty) {
 		}
 	}
 	else if (empty == 4 || empty == count - 4) {
+	//第四个是空位
 		if (count >= 9) {
 			return FIVE;
 		}
